@@ -5,9 +5,11 @@ import CoreConcept from './components/CoreConcept'
 import TapButton from './components/TapButton'
 
 function App() {
-  function handleSelect() {
-    console.log('Hello World - selected!')
+  function handleSelect(selectedButton) {
+    // selectedButton => 'components', 'JSX', Props, State
+    console.log(selectedButton)
   }
+
   return (
     <>
       <Header />
@@ -28,10 +30,12 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TapButton onSelect={handleSelect}>Components</TapButton>
-            <TapButton onSelect={handleSelect}>JSX</TapButton>
-            <TapButton onSelect={handleSelect}>Props</TapButton>
-            <TapButton onSelect={handleSelect}>State</TapButton>
+            <TapButton onSelect={() => handleSelect('Components')}>
+              Components
+            </TapButton>
+            <TapButton onSelect={() => handleSelect('JSX')}>JSX</TapButton>
+            <TapButton onSelect={() => handleSelect('Props')}>Props</TapButton>
+            <TapButton onSelect={() => handleSelect('State')}>State</TapButton>
           </menu>
         </section>
       </main>
