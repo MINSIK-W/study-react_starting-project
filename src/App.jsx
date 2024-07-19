@@ -44,9 +44,8 @@ function App() {
             <TapButton onSelect={() => handleSelect('props')}>Props</TapButton>
             <TapButton onSelect={() => handleSelect('state')}>State</TapButton>
           </menu>
-          {!selectedTopic ? (
-            <p>Please select a topic.</p>
-          ) : (
+          {!selectedTopic && <p>Please select a topic.</p>}
+          {selectedTopic && (
             <div id="tab-content">
               <h3>{EXAMPLES[selectedTopic].title}</h3>
               <p>{EXAMPLES[selectedTopic].description}</p>
