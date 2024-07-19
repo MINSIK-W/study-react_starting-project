@@ -5,10 +5,15 @@ import CoreConcept from './components/CoreConcept'
 import TapButton from './components/TapButton'
 
 function App() {
+  let tabContent = 'Please click a button'
+
   function handleSelect(selectedButton) {
     // selectedButton => 'components', 'JSX', Props, State
-    console.log(selectedButton)
+    tabContent = selectedButton
+    console.log(tabContent)
   }
+
+  console.log('APP COMPONENT EXECUTING')
 
   return (
     <>
@@ -37,6 +42,7 @@ function App() {
             <TapButton onSelect={() => handleSelect('Props')}>Props</TapButton>
             <TapButton onSelect={() => handleSelect('State')}>State</TapButton>
           </menu>
+          {tabContent}
         </section>
       </main>
     </>
