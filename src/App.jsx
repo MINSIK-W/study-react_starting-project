@@ -8,7 +8,6 @@ import TapButton from './components/TapButton'
 
 function App() {
   const [selectedTopic, setSelectedTopic] = useState()
-
   function handleSelect(selectedButton) {
     // selectedButton => 'components', 'JSX', Props, State
     setSelectedTopic(selectedButton)
@@ -17,6 +16,18 @@ function App() {
 
   console.log('APP COMPONENT EXECUTING')
 
+  let topContent = <p>Please select a topic.</p>
+  if (selectedTopic) {
+    topContent = (
+      <div id="tab-content">
+        <h3>{EXAMPLES[selectedTopic].title}</h3>
+        <p>{EXAMPLES[selectedTopic].description}</p>
+        <pre>
+          <code>{EXAMPLES[selectedTopic].code}</code>
+        </pre>
+      </div>
+    )
+  }
   return (
     <>
       <Header />
@@ -44,17 +55,8 @@ function App() {
             <TapButton onSelect={() => handleSelect('props')}>Props</TapButton>
             <TapButton onSelect={() => handleSelect('state')}>State</TapButton>
           </menu>
-          {!selectedTopic && <p>Please select a topic.</p>}
-          {selectedTopic && (
-            <div id="tab-content">
-              <h3>{EXAMPLES[selectedTopic].title}</h3>
-              <p>{EXAMPLES[selectedTopic].description}</p>
-              <pre>
-                <code>{EXAMPLES[selectedTopic].code}</code>
-              </pre>
-            </div>
-          )}
         </section>
+        {topContent}
       </main>
     </>
   )
