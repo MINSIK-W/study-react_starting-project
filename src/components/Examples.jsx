@@ -11,7 +11,7 @@ export default function Examples() {
   function handleSelect(selectedButton) {
     // selectedButton => 'components', 'JSX', Props, State
     setSelectedTopic(selectedButton)
-    console.log(setSelectedTopic)
+    console.log(selectedButton)
   }
 
   let topContent = <p>Please select a topic.</p>
@@ -30,6 +30,7 @@ export default function Examples() {
   return (
     <Section title="Examples" id="examples">
       <Tabs
+        buttonsContainer="menu"
         buttons={
           <>
             <TapButton
